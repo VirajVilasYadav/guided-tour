@@ -1,0 +1,68 @@
+<div class="container">
+    <div class="row justify-content-center align-items-center g-2 mt-4">
+        <div class="col-12">
+            <div class="mb-3">
+                <label for="" class="form-label">
+                    AI Assistant
+                    <i class="bi bi-stars"></i>
+                </label>
+                <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="" />
+                <!-- <small id="helpId" class="form-text text-muted">Help text</small> -->
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center align-items-center g-2">
+        <div class="col-5">
+            <hr>
+        </div>
+        <div class="col-2 text-center">OR</div>
+        <div class="col-5">
+            <hr>
+        </div>
+    </div>
+    <div class="row justify-content-center align-items-center g-2 mt-4">
+        <div class="col-12">
+            <div class="container">
+                <form [formGroup]="stepForm">
+                    <div class="mb-3 row">
+                        <label for="inputName" class="col-4 col-form-label">Title</label>
+                        <div class="col-8">
+                            <input type="text" class="form-control" name="title" tourAnchor="title" id="title"
+                                placeholder="Step Title" formControlName="title"/>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="inputName" class="col-4 col-form-label">Content</label>
+                        <div class="col-8">
+                            <input type="text" class="form-control" name="content" tourAnchor="content" id="content"
+                                placeholder="Step Content" formControlName="content"/>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="inputName" class="col-4 col-form-label">Selector</label>
+                        <div class="col-8">
+                            <div class="mb-3 row">
+                                <div class="offset-sm-4 col-sm-8">
+                                    <button type="button" class="btn btn-primary" (click)="captureNextClick()">
+                                        Select Element By Click It
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <div class="offset-sm-4 col-sm-8">
+                            <button type="button" class="btn btn-primary" (click)="addStep()">
+                                Add Step
+                            </button>
+                            <button type="submit" class="btn btn-primary m-3" (click)="publishAndPreview()">
+                                Publish & Preview
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>

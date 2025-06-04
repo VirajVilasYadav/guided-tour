@@ -1,0 +1,20 @@
+<div class="container-fluid">
+  <div class="row justify-content-center align-items-center g-2">
+    <div class="col mt-4">
+      <button tourAnchor="start-button" class="btn btn-outline-primary" (click)="startTour()">
+        Help?
+      </button>
+    </div>
+    <div class="col mt-4">
+      <button tourAnchor="create-tour-button" class="btn btn-outline-primary" (click)="createTour()">
+        Create tour
+      </button>
+    </div>
+  </div>
+</div>
+
+<ng-container>
+  <router-outlet></router-outlet>
+</ng-container>
+
+<tour-step-template></tour-step-template>
