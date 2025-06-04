@@ -46,7 +46,7 @@ export class CreateTourComponent {
 
   publishAndPreview() {
     this.tourService.addTour('preview', this.steps);
-    this.tourService.startTour('preview');
+    this.tourService.initializeStepsAndStart('preview');
   }
 
 }

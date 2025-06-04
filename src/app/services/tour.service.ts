@@ -15,17 +15,33 @@ export class TourServiceService {
     this.tours.set(tourId, steps);
   }
 
-  startTour(tourId: string) {
+  initializeStepsAndStart(tourId: string) {
     this.initializeSteps(<IStepOption[]>this.tours.get(tourId));
     this.tourService.start();
   }
 
-  initializeSteps(steps: IStepOption[]) {
-    this.tourService.initialize(steps, {
-      enableBackdrop: true,
-      backdropConfig: {
-        offset: 10,
-      },
-    });
+  startTour() {
+    this.tourService.start();
   }
+
+  endTour() {
+    this.tourService.end();
+  }
+
+  initializeSteps(steps: IStepOption[], stepDefaults?: IStepOption) {
+    if (!stepDefaults) {
+      stepDefaults = {
+        enableBackdrop: true,
+        backdropConfig: {
+          offset: 10,
+        },
+      }
+    }
+    this.tourService.initialize(steps, stepDefaults);
+  }
+
+  get coreService() {
+    return this.tourService;
+  }
+
 }

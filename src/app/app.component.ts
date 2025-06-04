@@ -49,16 +49,44 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-
+    let releaseStep: IStepOption = {
+      anchorId: 'main-app',
+      content: `
+      Changes in this relase are mentioned below,
+      <ol class="list-group list-group-numbered">
+        <li class="list-group-item">Feedback Forms are now available (New Feature)</li>
+        <li class="list-group-item">Added a validation for report publishing to SafeConnect</li>
+        <li class="list-group-item">Bugs Fixed</li>
+      </ol>
+      `,
+      title: 'New Release',
+    };
+    this.tourService.addTour('release', [releaseStep]);
+    this.tourService.initializeSteps([releaseStep], {
+      stepDimensions: {
+        width: '100%',
+        minWidth: '100%',
+        maxWidth: '100%',
+      },
+      enableBackdrop: true,
+      backdropConfig: {
+        offset: 0,
+      },
+    });
+    this.tourService.startTour();
   }
 
   startTour() {
     this.router.navigate(['some-app']);
-    this.tourService.startTour('initial');
+    this.tourService.initializeStepsAndStart('initial');
   }
 
   createTour() {
     this.router.navigate(['author/create-tour']);
+  }
+
+  get coreTourService() {
+    return this.tourService.coreService;
   }
 
 }
